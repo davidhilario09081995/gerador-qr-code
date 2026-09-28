@@ -1,35 +1,20 @@
-/* Cores da logo Target Mídia Digital: azul #004AAD, preto e branco */
+/* Cores da Target Mídia Digital: azul #004AAD e branco (sempre tema claro) */
 :root {
-  --fundo: #f3f6fb;
+  color-scheme: light;
+  --fundo: #ffffff;
   --cartao: #ffffff;
-  --texto: #000000;
-  --suave: #4a5568;
-  --borda: #d5deec;
+  --texto: #0b1f3f;
+  --suave: #4a5b78;
+  --borda: #d6e2f5;
+  --campo: #f5f8fd;
   --destaque: #004aad;
   --destaque-hover: #003a8a;
   --destaque-texto: #ffffff;
-  --topo-fundo: #000000;
+  --topo-fundo: #004aad;
   --topo-texto: #ffffff;
   --aviso: #8a5300;
   --aviso-fundo: #fff4e0;
   --raio: 12px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fundo: #0a0d14;
-    --cartao: #141a26;
-    --texto: #ffffff;
-    --suave: #a3adbf;
-    --borda: #26314a;
-    --destaque: #3d82ff;
-    --destaque-hover: #5c96ff;
-    --destaque-texto: #ffffff;
-    --topo-fundo: #000000;
-    --topo-texto: #ffffff;
-    --aviso: #ffc46b;
-    --aviso-fundo: #3a2c12;
-  }
 }
 
 * { box-sizing: border-box; }
@@ -49,15 +34,28 @@ body {
   padding: 0 16px;
 }
 
+.barra-logo {
+  background: #ffffff;
+  border-bottom: 1px solid var(--borda);
+}
+.barra-logo-conteudo {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+.logo {
+  display: block;
+  height: 52px;
+  width: auto;
+}
+
 .faixa-topo {
   background: var(--topo-fundo);
   color: var(--topo-texto);
-  border-bottom: 4px solid var(--destaque);
 }
 .topo { padding-top: 28px; padding-bottom: 28px; }
 .topo h1 { margin: 0 0 4px; font-size: 1.8rem; letter-spacing: -0.01em; }
-.topo h1 span { color: #3d82ff; }
-.topo p { margin: 0; color: #c9d3e6; }
+.topo p { margin: 0; color: #dbe6fb; }
 
 .layout {
   display: grid;
@@ -117,7 +115,7 @@ textarea, select {
   font: inherit;
   font-weight: 400;
   color: var(--texto);
-  background: var(--fundo);
+  background: var(--campo);
   border: 1px solid var(--borda);
   border-radius: 8px;
 }
@@ -135,7 +133,7 @@ input[type="color"] {
   padding: 2px;
   border: 1px solid var(--borda);
   border-radius: 8px;
-  background: var(--fundo);
+  background: var(--campo);
   cursor: pointer;
 }
 input[type="range"] { display: block; width: 100%; margin-top: 8px; }
@@ -252,4 +250,5 @@ button.link {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .preview { position: static; order: -1; }
   .topo h1 { font-size: 1.5rem; }
+  .logo { height: 42px; }
 }
