@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerador de QR Code</title>
+  <meta name="description" content="Gere QR Codes grátis, sem cadastro, sem mensalidade e sem prazo de validade.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Gerador de QR Code</h1>
+    <p>Grátis, sem cadastro e sem validade. O QR Code é gerado no seu navegador e nunca expira.</p>
+  </header>
+
+  <main class="layout">
+    <section class="painel">
+      <div class="abas" role="tablist">
+        <button class="aba ativa" data-tipo="link" role="tab">Link</button>
+        <button class="aba" data-tipo="whatsapp" role="tab">WhatsApp</button>
+      </div>
+
+      <form id="formulario" autocomplete="off" onsubmit="return false">
+        <div class="grupo" data-grupo="link">
+          <label>Endereço do site
+            <input type="url" name="link" placeholder="https://seusite.com.br" value="https://">
+          </label>
+        </div>
+
+        <div class="grupo" data-grupo="whatsapp" hidden>
+          <label>Número com DDI e DDD
+            <input type="tel" name="wa_numero" placeholder="55 11 91234-5678">
+          </label>
+          <label>Mensagem inicial (opcional)
+            <textarea name="wa_msg" rows="3" placeholder="Olá! Vim pelo QR Code."></textarea>
+          </label>
+        </div>
+
+        <details class="personalizar" open>
+          <summary>Personalizar</summary>
+          <div class="linha">
+            <label>Cor do código
+              <input type="color" name="cor" value="#111111">
+            </label>
+            <label>Cor de fundo
+              <input type="color" name="fundo" value="#ffffff">
+            </label>
+            <label class="check">
+              <input type="checkbox" name="transparente"> Fundo transparente
+            </label>
+          </div>
+          <label>Tamanho: <output id="tamanhoValor">600</output> px
+            <input type="range" name="tamanho" min="200" max="2000" step="50" value="600">
+          </label>
+          <label>Logo no centro (opcional)
+            <input type="file" name="logo" accept="image/*">
+          </label>
+          <button type="button" id="removerLogo" class="link" hidden>Remover logo</button>
+        </details>
+      </form>
+    </section>
+
+    <section class="preview">
+      <div class="moldura">
+        <canvas id="canvas" aria-label="Pré-visualização do QR Code"></canvas>
+        <p id="vazio" class="vazio" hidden>Preencha os campos para gerar o QR Code.</p>
+      </div>
+      <p id="aviso" class="aviso" hidden></p>
+      <div class="botoes">
+        <button type="button" id="baixarPng" class="primario">Baixar PNG</button>
+        <button type="button" id="baixarSvg">Baixar SVG</button>
+        <button type="button" id="copiar">Copiar imagem</button>
+        <button type="button" id="baixarGmn" class="gmn">Baixar na arte do Google Meu Negócio</button>
+      </div>
+      <p class="dica">Dica: o SVG não perde qualidade em nenhum tamanho e é o melhor formato para gráfica e impressão.</p>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    O conteúdo fica gravado dentro do próprio QR Code. Não há redirecionamento nem servidor, então ele funciona para sempre.
+  </footer>
+
+  <script src="qrcode.js"></script>
+  <script src="modelos/gmn.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
