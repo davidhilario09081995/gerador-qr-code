@@ -1,6 +1,6 @@
 /* Cores da Target Mídia Digital: azul #004AAD e branco (sempre tema claro) */
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --fundo: #ffffff;
   --cartao: #ffffff;
   --texto: #0b1f3f;
@@ -41,11 +41,11 @@ body {
 .barra-logo-conteudo {
   max-width: 1040px;
   margin: 0 auto;
-  padding: 12px 16px;
+  padding: 10px 16px;
 }
 .logo {
   display: block;
-  height: 52px;
+  height: 46px;
   width: auto;
 }
 
@@ -250,5 +250,5 @@ button.link {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .preview { position: static; order: -1; }
   .topo h1 { font-size: 1.5rem; }
-  .logo { height: 42px; }
+  .logo { height: 38px !important; }
 }
